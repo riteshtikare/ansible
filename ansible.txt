@@ -1,6 +1,6 @@
 lab-setup ansible and simple task
 
-->create a three machine on aws
+->create three machine on aws
 ::on control node 
 ->sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 ->yum install ansible 

@@ -1,0 +1,32 @@
+lab-setup ansible and simple task
+
+->create a three machine on aws
+::on control node 
+->sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+->yum install ansible 
+->mkdir aws 
+->cd aws
+-> vim inventory
+	->[production]
+	  host ip address
+->sudo ansible production -i inventory --list-hosts
+->sudo ansible-doc -l
+-> yum install vim 
+->vim myplay.yml
+	---
+	-  name: this is my first play book
+	   hosts: production
+	   become: True
+	   task:
+	    - name: install podman 
+	      yum:
+               name: podam
+	       state: present
+	    - name: create ite
+	      user:
+	       name: ite
+                state: present
+	        group: wheel  
+->ansible-playbook -i inventory --private-key key-name myplay.yml -u ec2-user 
+::host machine 
+  
